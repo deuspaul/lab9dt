@@ -12,7 +12,7 @@ RUN echo "@deuspaul:registry=https://npm.pkg.github.com" > /app/.npmrc
 
 RUN echo "//npm.pkg.github.com/:_authToken=\"${NODE_AUTH_TOKEN}\"" >> /app/.npmrc
 
-RUN ls .npmrc
+RUN cat .npmrc
 
 RUN npm i --yes
 
