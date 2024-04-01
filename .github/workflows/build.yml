@@ -8,8 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Debug secret
-        run: echo "Secret value: ${{ secrets.PAT }}"
+      - run: |
+          echo "Secret value: ${{ secrets.PAT }}"
       #- uses: docker/login-action@v3.1.0
       #  with:
       #    registry: ghcr.io 
