@@ -16,8 +16,6 @@ RUN echo "//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}" >> /app/.npmrc
 
 RUN ls -alh
 
-RUN npm whoami
-
 RUN cat .npmrc
 
 RUN npm i --yes
