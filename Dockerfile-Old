@@ -1,0 +1,58 @@
+# Use an official Node.js image as the base
+FROM node:20-alpine
+
+#ARG NPM_REGISTRY
+ARG NPM_TOKEN
+#ARG NPM_CONFIG_REGISTRY
+
+#ENV NPM_DOCKER_REGISTRY=$NPM_REGISTRY
+#ENV NPM_CONFIG_REGISTRY=$NPM_CONFIG_REGISTRY
+ENV NPM_DOCKER_TOKEN=$NPM_TOKEN
+#ENV WORKDIR=/app
+
+#WORKDIR ${WORKDIR}
+WORKDIR /app
+    
+#COPY . ${WORKDIR}
+COPY . /app
+
+#RUN echo "${NPM_DOCKER_REGISTRY}/:_authToken="'"'${NPM_DOCKER_TOKEN}'"' > ${WORKDIR}/.npmrc
+RUN echo "npm.pkg.github.com/:_authToken="'"'${NPM_DOCKER_TOKEN}'"' > /app/.npmrc
+
+RUN npm i --yes
+# Set the working directory inside the container
+#WORKDIR /app
+#WORKDIR /react-docker-example/
+
+# Copy package.json and yarn.lock (if using Yarn)
+#COPY package.json ./
+
+#COPY .npmrc /react-docker-example/.npmrc
+#COPY public/ /react-docker-example/public
+#COPY src/ /react-docker-example/src
+#COPY package.json /react-docker-example/
+
+#RUN echo "//npm.pkg.github.com/:_authToken="'"'${NPM_TOKEN}'"' > /react-docker-example/.npmrc
+#RUN echo "//RUN echo "//npm.pkg.github.com/:_authToken="'"'${NPM_TOKEN}'"' > ${WORKDIR}/.npmrc/:_authToken="'"'${NPM_DOCKER_TOKEN}'"' > /react-docker-example/.npmrc
+#//npm.pkg.github.com/:_authToken=TOKEN
+
+#COPY .npmrc .npmrc
+#COPY public/ /public
+#COPY src/ /src
+#COPY package.json package.json
+
+#RUN cat .npmrc
+
+# Install dependencies
+#RUN npm install
+
+#RUN rm -f .npmrc
+
+# Copy the rest of the application code
+#COPY . .
+
+# Expose the port your app will run on (usually 3000 for React)
+EXPOSE 3000
+
+# Define the command to start your app
+CMD ["npm", "start"]
