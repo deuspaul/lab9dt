@@ -16,6 +16,6 @@ jobs:
         with:
           tags: deuspaul/calculator:latest
           build-args: |
-            --build-arg NPM_TOKEN=${{ secrets.PAT }}
+            JFROG_USERNAME=${{ secrets.PAT }}
       
     
