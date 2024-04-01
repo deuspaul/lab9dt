@@ -12,10 +12,11 @@ jobs:
           registry: ghcr.io 
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - uses: docker/build-push-action@v5.3.0
-        with:
-          tags: deuspaul/calculator:latest
-          build-args: |
-            NPM_TOKEN=${{ secrets.PAT }}
+      - run: docker build -t vite/host:clean . --build-arg NPM_TOKEN=${{ secrets.PAT }}
+      #- uses: docker/build-push-action@v5.3.0
+        #with:
+          #tags: deuspaul/calculator:latest
+          #build-args: |
+            #NPM_TOKEN=${{ secrets.PAT }}
       
     
