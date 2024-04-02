@@ -2,7 +2,11 @@ FROM node:20-alpine
 
 ARG NPM_TOKEN
 
+RUN echo $NPM_TOKEN
+
 ENV PAT3=$NPM_TOKEN
+
+RUN echo $PAT3
 
 WORKDIR /app
 
