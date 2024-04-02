@@ -16,8 +16,6 @@ RUN npm i --yes
 
 RUN rm -f /app/.npmrc
 
-RUN ls -alh
-
 EXPOSE 3000
 
 CMD ["npm", "start"]
