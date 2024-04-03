@@ -1,6 +1,7 @@
 # GitHub Codespaces ♥️ React
 
 ![example workflow](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
+![example workflow](https://github.com/deuspaul/lab9dt/actions/workflows/build.yml/badge.svg)
 
 Welcome to your shiny new Codespace running React! We've got everything fired up and running for you to explore React.
 
